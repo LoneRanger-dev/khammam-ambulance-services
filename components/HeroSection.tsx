@@ -44,43 +44,43 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-hero-gradient noise-bg"
+      className="relative overflow-hidden bg-hero-gradient noise-bg pt-16 sm:pt-20"
       aria-label={`${BUSINESS_NAME} — 24/7 Emergency Ambulance Service in Khammam`}
     >
       {/* Background glow effects */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-emergency-500/10 rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-azure-500/10 rounded-full blur-[100px] pointer-events-none" aria-hidden="true" />
 
-      {/* Live status bar */}
+      {/* Live status bar — clean flow */}
       <div
-        className="absolute top-16 left-0 right-0 bg-emergency-500/15 border-b border-emergency-500/30 py-2.5 z-10"
+        className="w-full bg-emergency-500/15 border-b border-emergency-500/30 py-2 mt-1 sm:mt-2"
         role="status"
         aria-label="Emergency lines open 24 hours, 7 days a week in Khammam & surrounding 30 km radius"
       >
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-2 text-center">
-          <span className="relative flex h-2.5 w-2.5 flex-shrink-0" aria-hidden="true">
+          <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 flex-shrink-0" aria-hidden="true">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emergency-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emergency-400" />
+            <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emergency-400" />
           </span>
-          <span className="text-emergency-300 text-xs sm:text-sm font-semibold font-heading tracking-wide">
-            24/7 EMERGENCY AMBULANCE · KHAMMAM (MAYURI CENTER) &amp; SURROUNDING 30 KM RADIUS
+          <span className="text-emergency-300 text-[11px] sm:text-sm font-semibold font-heading tracking-wide uppercase">
+            24/7 EMERGENCY AMBULANCE · KHAMMAM &amp; 30 KM RADIUS
           </span>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-28 pb-8 lg:pt-36 lg:pb-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 pb-8 sm:pt-10 lg:pt-14 lg:pb-14">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* ── Left column — text content ── */}
-          <div className="space-y-6">
+          <div className="space-y-5 sm:space-y-6">
             {/* 24/7 Badge */}
             <motion.div
               custom={0}
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="inline-flex items-center gap-2 glass border border-emergency-500/30 px-4 py-2 rounded-full"
+              className="inline-flex items-center gap-2 glass border border-emergency-500/30 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full"
             >
-              <Clock className="w-4 h-4 text-emergency-400" aria-hidden="true" />
+              <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emergency-400" aria-hidden="true" />
               <span className="text-emergency-300 text-xs sm:text-sm font-semibold font-heading tracking-wider">
                 24/7 EMERGENCY &amp; ICU AMBULANCE · KHAMMAM
               </span>
@@ -92,7 +92,7 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] leading-none text-white"
+              className="font-display text-4xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] leading-none text-white"
             >
               EVERY{" "}
               <span className="gradient-text">SECOND</span>
@@ -106,7 +106,7 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="text-white/80 text-lg sm:text-xl leading-relaxed max-w-lg font-body"
+              className="text-white/80 text-base sm:text-xl leading-relaxed max-w-lg font-body"
             >
               Khammam&apos;s trusted emergency ambulance service operated by Mahesh. ICU ventilator support, oxygen, freezer box, and inter-state transfers across <strong className="text-white font-semibold">30 km radius of Khammam &amp; All India</strong>.
             </motion.p>
@@ -136,7 +136,7 @@ export default function HeroSection() {
               <a
                 href={CALL_LINK}
                 onClick={() => trackCall("hero")}
-                className="btn-emergency flex items-center justify-center gap-2.5 bg-emergency-500 hover:bg-emergency-600 active:bg-emergency-700 text-white px-6 py-4 rounded-2xl text-base sm:text-lg font-bold font-heading tracking-wide transition-all duration-200 shadow-lg shadow-emergency-500/30 hover:shadow-emergency-500/50 hover:scale-105 emergency-pulse whitespace-nowrap"
+                className="btn-emergency flex items-center justify-center gap-2.5 bg-emergency-500 hover:bg-emergency-600 active:bg-emergency-700 text-white px-5 sm:px-7 py-3.5 sm:py-4 rounded-2xl text-base sm:text-lg font-bold font-heading tracking-wide transition-all duration-200 shadow-lg shadow-emergency-500/30 hover:shadow-emergency-500/50 hover:scale-105 emergency-pulse whitespace-nowrap"
                 aria-label={`Call ${BUSINESS_NAME} now at ${PHONE_DISPLAY}`}
               >
                 <Phone className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
@@ -147,7 +147,7 @@ export default function HeroSection() {
                 onClick={() => trackWhatsApp("hero")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2.5 glass border border-green-500/40 hover:bg-green-500/20 text-white px-6 py-4 rounded-2xl text-base sm:text-lg font-bold font-heading tracking-wide transition-all duration-200 hover:scale-105 whitespace-nowrap"
+                className="flex items-center justify-center gap-2.5 glass border border-green-500/40 hover:bg-green-500/20 text-white px-5 sm:px-7 py-3.5 sm:py-4 rounded-2xl text-base sm:text-lg font-bold font-heading tracking-wide transition-all duration-200 hover:scale-105 whitespace-nowrap"
                 aria-label="Contact Khammam Ambulance Services on WhatsApp"
               >
                 <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-400 flex-shrink-0" aria-hidden="true" />
@@ -161,12 +161,12 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               variants={fadeUp}
-              className="flex flex-wrap gap-2.5 pt-1"
+              className="flex flex-wrap gap-2 pt-1"
             >
               {trustBadges.map(({ icon: Icon, label, highlight }) => (
                 <div
                   key={label}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium ${
                     highlight
                       ? "bg-yellow-400/10 border border-yellow-400/30 text-yellow-300"
                       : "glass text-white/80"
@@ -242,7 +242,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="flex justify-center mt-8 lg:mt-12"
+          className="flex justify-center mt-6 lg:mt-12"
         >
           <a
             href="#services"

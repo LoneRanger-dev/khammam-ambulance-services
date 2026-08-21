@@ -8,7 +8,6 @@ import {
   CALL_LINK,
   PHONE_DISPLAY,
   WHATSAPP_LINK,
-  ADDRESS,
 } from "@/lib/constants";
 import { trackCall, trackWhatsApp } from "@/lib/tracking";
 
@@ -28,22 +27,22 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-navy-950/90 backdrop-blur-md border-b border-white/10 shadow-lg py-3"
-          : "bg-gradient-to-b from-navy-950/90 via-navy-950/50 to-transparent py-4"
+          ? "bg-navy-950/95 backdrop-blur-md border-b border-white/10 shadow-lg py-2.5"
+          : "bg-gradient-to-b from-navy-950/95 via-navy-950/80 to-transparent py-3"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-emergency-500/20 border border-emergency-500/40 flex items-center justify-center text-emergency-400 group-hover:scale-105 transition-transform siren-blink">
-              <ShieldAlert className="w-6 h-6" />
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emergency-500/20 border border-emergency-500/40 flex items-center justify-center text-emergency-400 group-hover:scale-105 transition-transform siren-blink flex-shrink-0">
+              <ShieldAlert className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-xl sm:text-2xl text-white tracking-wide leading-tight group-hover:text-emergency-300 transition-colors">
+              <span className="font-display text-lg sm:text-2xl text-white tracking-wide leading-none group-hover:text-emergency-300 transition-colors">
                 KHAMMAM AMBULANCE
               </span>
-              <span className="text-[10px] sm:text-xs text-emergency-400 font-semibold font-heading tracking-widest uppercase flex items-center gap-1">
+              <span className="hidden sm:flex text-[10px] text-emergency-400 font-semibold font-heading tracking-widest uppercase items-center gap-1 mt-0.5">
                 <MapPin className="w-3 h-3 inline" /> Mayuri Center, Khammam · 24/7
               </span>
             </div>
@@ -92,7 +91,7 @@ export default function Navbar() {
             <a
               href={CALL_LINK}
               onClick={() => trackCall("navbar_mobile")}
-              className="flex items-center gap-1.5 bg-emergency-500 hover:bg-emergency-600 text-white px-3.5 py-2 rounded-lg text-xs font-bold font-heading emergency-pulse shadow-md whitespace-nowrap"
+              className="flex items-center gap-1.5 bg-emergency-500 hover:bg-emergency-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold font-heading emergency-pulse shadow-md whitespace-nowrap"
             >
               <Phone className="w-3.5 h-3.5 flex-shrink-0" />
               <span className="whitespace-nowrap">CALL NOW</span>
@@ -100,17 +99,17 @@ export default function Navbar() {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 glass text-white/80 hover:text-white rounded-lg"
+              className="p-1.5 glass text-white/80 hover:text-white rounded-lg"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
         {/* Mobile Dropdown Nav */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 p-4 glass-dark rounded-2xl border border-white/10 space-y-3 animate-slide-up">
+          <div className="md:hidden mt-3 p-4 glass-dark rounded-2xl border border-white/10 space-y-3 animate-slide-up">
             <a
               href="#services"
               onClick={() => setMobileMenuOpen(false)}
