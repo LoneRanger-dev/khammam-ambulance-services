@@ -51,7 +51,7 @@ export default function HeroSection() {
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-emergency-500/10 rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-azure-500/10 rounded-full blur-[100px] pointer-events-none" aria-hidden="true" />
 
-      {/* Live status bar — clean flow */}
+      {/* Live status bar */}
       <div
         className="w-full bg-emergency-500/15 border-b border-emergency-500/30 py-2 mt-1 sm:mt-2"
         role="status"
@@ -70,8 +70,66 @@ export default function HeroSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 pb-8 sm:pt-10 lg:pt-14 lg:pb-14">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* ── Left column — text content ── */}
-          <div className="space-y-5 sm:space-y-6">
+          
+          {/* ── Image Banner (Order-1 on Mobile, Order-2 on Desktop) ── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="block relative order-1 lg:order-2"
+          >
+            <div className="relative w-full max-w-lg lg:max-w-xl mx-auto">
+              <div className="absolute -inset-4 bg-emergency-500/15 rounded-3xl blur-2xl" aria-hidden="true" />
+
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl shadow-black/80 bg-navy-950">
+                <Image
+                  src={IMAGES.hero}
+                  alt="Khammam Ambulance Services Mahesh vehicle banner — FAST. SAFE. ALWAYS HERE. TS04UE5854"
+                  width={1200}
+                  height={800}
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="w-full h-auto object-contain rounded-3xl"
+                  quality={95}
+                />
+              </div>
+
+              {/* Floating rating badges */}
+              <motion.a
+                href={GOOGLE_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7, duration: 0.4 }}
+                className="hidden sm:block sm:absolute -top-5 -right-5 glass border border-yellow-400/30 px-4 py-3 rounded-2xl hover:border-yellow-400/60 transition-colors shadow-xl z-10"
+                aria-label={`Rated ${GOOGLE_RATING} stars on Google`}
+              >
+                <div className="flex items-center gap-1.5">
+                  <span className="text-2xl font-display text-white leading-none">{GOOGLE_RATING.toFixed(1)}</span>
+                  <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" aria-hidden="true" />
+                </div>
+                <div className="text-white/60 text-xs mt-0.5">Google Business Rating</div>
+              </motion.a>
+
+              <motion.a
+                href={GOOGLE_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.8, duration: 0.4 }}
+                className="hidden sm:block sm:absolute -bottom-5 -left-5 glass border border-emergency-500/30 px-4 py-3 rounded-2xl hover:border-emergency-500/60 transition-colors shadow-xl z-10"
+                aria-label="30 km Khammam Service Area"
+              >
+                <div className="text-2xl font-display text-emergency-400 leading-none">30 KM</div>
+                <div className="text-white/60 text-xs mt-0.5">Khammam Coverage Radius</div>
+              </motion.a>
+            </div>
+          </motion.div>
+
+          {/* ── Text Content (Order-2 on Mobile, Order-1 on Desktop) ── */}
+          <div className="space-y-5 sm:space-y-6 order-2 lg:order-1">
             {/* 24/7 Badge */}
             <motion.div
               custom={0}
@@ -179,62 +237,6 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* ── Right column — full uncropped ambulance banner image ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="block relative"
-          >
-            <div className="relative w-full max-w-lg lg:max-w-xl mx-auto">
-              <div className="absolute -inset-4 bg-emergency-500/15 rounded-3xl blur-2xl" aria-hidden="true" />
-
-              <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl shadow-black/80 bg-navy-950">
-                <Image
-                  src={IMAGES.hero}
-                  alt="Khammam Ambulance Services Mahesh vehicle banner — FAST. SAFE. ALWAYS HERE. TS04UE5854"
-                  width={1200}
-                  height={800}
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="w-full h-auto object-contain rounded-3xl"
-                  quality={95}
-                />
-              </div>
-
-              {/* Floating rating badge */}
-              <motion.a
-                href={GOOGLE_MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.9, duration: 0.4 }}
-                className="hidden sm:block sm:absolute -top-5 -right-5 glass border border-yellow-400/30 px-4 py-3 rounded-2xl hover:border-yellow-400/60 transition-colors shadow-xl z-10"
-                aria-label={`Rated ${GOOGLE_RATING} stars on Google`}
-              >
-                <div className="flex items-center gap-1.5">
-                  <span className="text-2xl font-display text-white leading-none">{GOOGLE_RATING.toFixed(1)}</span>
-                  <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" aria-hidden="true" />
-                </div>
-                <div className="text-white/60 text-xs mt-0.5">Google Business Rating</div>
-              </motion.a>
-
-              <motion.a
-                href={GOOGLE_MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.0, duration: 0.4 }}
-                className="hidden sm:block sm:absolute -bottom-5 -left-5 glass border border-emergency-500/30 px-4 py-3 rounded-2xl hover:border-emergency-500/60 transition-colors shadow-xl z-10"
-                aria-label="30 km Khammam Service Area"
-              >
-                <div className="text-2xl font-display text-emergency-400 leading-none">30 KM</div>
-                <div className="text-white/60 text-xs mt-0.5">Khammam Coverage Radius</div>
-              </motion.a>
-            </div>
-          </motion.div>
         </div>
 
         {/* Scroll indicator */}
