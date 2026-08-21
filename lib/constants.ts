@@ -1,7 +1,7 @@
 // ─── Business Identity ─────────────────────────────────────────────────────
 export const BUSINESS_NAME = "Khammam Ambulance Services (Mahesh)";
 export const SHORT_NAME = "Khammam Ambulance Services";
-export const SITE_URL = "https://khammamambulanceservices.com";
+export const SITE_URL = "https://www.khammamambulanceservicesmahesh.com";
 export const EMAIL = "khammamambulanceservice@gmail.com";
 
 // ─── Phone & WhatsApp ──────────────────────────────────────────────────────
