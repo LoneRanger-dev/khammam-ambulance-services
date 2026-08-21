@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-dm-sans), sans-serif;
+  background-color: #020c1b;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a2540;
+}
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(220, 38, 38, 0.3);
+  color: #ffffff;
+}
+
+/* ─── Keyframe animations ──────────────────────────────────────────────── */
+@keyframes emergencyPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); }
+}
+
+@keyframes sirenBlink {
+  0%, 100% { background-color: #dc2626; }
+  50% { background-color: #b91c1c; }
+}
+
+@keyframes floatAmbulance {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(0.5deg); }
+  66% { transform: translateY(-4px) rotate(-0.5deg); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── Animation utility classes ────────────────────────────────────────── */
+.emergency-pulse {
+  animation: emergencyPulse 2s infinite;
+}
+
+.float-ambulance {
+  animation: floatAmbulance 4s ease-in-out infinite;
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+.siren-blink {
+  animation: sirenBlink 0.8s ease-in-out infinite alternate;
+}
+
+/* ─── Reduced motion — respect user OS preference ──────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .emergency-pulse,
+  .float-ambulance,
+  .siren-blink {
+    animation: none;
+  }
+  .marquee-track {
+    animation: marquee 120s linear infinite;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Glass morphism ───────────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-dark {
+  background: rgba(5, 25, 35, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ─── Emergency button ─────────────────────────────────────────────────── */
+.btn-emergency {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-emergency::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(0);
+  border-radius: inherit;
+  transition: transform 0.4s ease;
+}
+
+.btn-emergency:active::before {
+  transform: scale(1);
+}
+
+/* ─── Gradient text ────────────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #ef4444, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #60a5fa, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Card hover ───────────────────────────────────────────────────────── */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(220, 38, 38, 0.2);
+}
+
+/* ─── Noise texture overlay ────────────────────────────────────────────── */
+.noise-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* ─── Mobile bottom padding for sticky button ──────────────────────────── */
+@media (max-width: 768px) {
+  .mobile-bottom-safe {
+    padding-bottom: 85px;
+  }
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+:focus-visible {
+  outline: 2px solid #ef4444;
+  outline-offset: 2px;
+}
