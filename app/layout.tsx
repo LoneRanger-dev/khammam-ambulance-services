@@ -99,6 +99,9 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   category: "healthcare",
+  verification: {
+    google: "PsqVYmdfmMUhna01JtFBFuEt172PGGS7O1fvshpKoL4",
+  },
 };
 
 export const viewport: Viewport = {
@@ -124,7 +127,7 @@ export default function RootLayout({
       url: SITE_URL,
       telephone: PHONE_NUMBER,
       email: EMAIL,
-      image: `${SITE_URL}/images/hero_ambulance.jpg`,
+      image: `${SITE_URL}/images/hero_ambulance.png`,
       address: {
         "@type": "PostalAddress",
         streetAddress: ADDRESS.street,
