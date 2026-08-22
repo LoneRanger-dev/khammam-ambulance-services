@@ -25,14 +25,14 @@ export default function EmergencyCTA() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full lg:w-auto shrink-0">
             <a
               href={CALL_LINK}
               onClick={() => trackCall("emergency_cta")}
-              className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-white hover:bg-slate-100 text-emergency-600 px-6 sm:px-8 py-4 rounded-2xl text-base sm:text-lg lg:text-xl font-bold font-heading tracking-wide shadow-2xl transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
+              className="w-full sm:w-auto min-w-max shrink-0 inline-flex items-center justify-center gap-2.5 bg-white hover:bg-slate-100 text-emergency-600 px-6 sm:px-7 py-3.5 sm:py-4 rounded-2xl text-base sm:text-lg font-bold font-heading tracking-wide shadow-2xl transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
             >
-              <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-emergency-600 animate-bounce flex-shrink-0" />
-              <span className="whitespace-nowrap">CALL {PHONE_DISPLAY}</span>
+              <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-emergency-600 animate-bounce shrink-0" />
+              <span className="whitespace-nowrap inline-block">CALL {PHONE_DISPLAY}</span>
             </a>
 
             <a
@@ -40,10 +40,10 @@ export default function EmergencyCTA() {
               onClick={() => trackWhatsApp("emergency_cta")}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-black/40 hover:bg-black/60 text-white border border-white/30 px-6 sm:px-8 py-4 rounded-2xl text-base sm:text-lg lg:text-xl font-bold font-heading tracking-wide transition-all hover:scale-105 whitespace-nowrap"
+              className="w-full sm:w-auto min-w-max shrink-0 inline-flex items-center justify-center gap-2.5 bg-black/40 hover:bg-black/60 text-white border border-white/30 px-6 sm:px-7 py-3.5 sm:py-4 rounded-2xl text-base sm:text-lg font-bold font-heading tracking-wide transition-all hover:scale-105 whitespace-nowrap"
             >
-              <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-400 flex-shrink-0" />
-              <span className="whitespace-nowrap">WHATSAPP</span>
+              <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-400 shrink-0" />
+              <span className="whitespace-nowrap inline-block">WHATSAPP</span>
             </a>
           </div>
         </div>

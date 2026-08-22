@@ -194,22 +194,22 @@ export default function HeroSection() {
               <a
                 href={CALL_LINK}
                 onClick={() => trackCall("hero")}
-                className="btn-emergency flex items-center justify-center gap-2.5 bg-emergency-500 hover:bg-emergency-600 active:bg-emergency-700 text-white px-5 sm:px-7 py-3.5 sm:py-4 rounded-2xl text-base sm:text-lg font-bold font-heading tracking-wide transition-all duration-200 shadow-lg shadow-emergency-500/30 hover:shadow-emergency-500/50 hover:scale-105 emergency-pulse whitespace-nowrap"
+                className="btn-emergency inline-flex items-center justify-center gap-2.5 bg-emergency-500 hover:bg-emergency-600 active:bg-emergency-700 text-white px-5 sm:px-7 py-3.5 sm:py-4 rounded-2xl text-base sm:text-lg font-bold font-heading tracking-wide transition-all duration-200 shadow-lg shadow-emergency-500/30 hover:shadow-emergency-500/50 hover:scale-105 emergency-pulse whitespace-nowrap min-w-max shrink-0"
                 aria-label={`Call ${BUSINESS_NAME} now at ${PHONE_DISPLAY}`}
               >
-                <Phone className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" aria-hidden="true" />
-                <span className="whitespace-nowrap">CALL {PHONE_DISPLAY}</span>
+                <Phone className="w-5 h-5 sm:w-6 sm:h-6 shrink-0" aria-hidden="true" />
+                <span className="whitespace-nowrap inline-block">CALL {PHONE_DISPLAY}</span>
               </a>
               <a
                 href={WHATSAPP_LINK}
                 onClick={() => trackWhatsApp("hero")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2.5 glass border border-green-500/40 hover:bg-green-500/20 text-white px-5 sm:px-7 py-3.5 sm:py-4 rounded-2xl text-base sm:text-lg font-bold font-heading tracking-wide transition-all duration-200 hover:scale-105 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2.5 glass border border-green-500/40 hover:bg-green-500/20 text-white px-5 sm:px-7 py-3.5 sm:py-4 rounded-2xl text-base sm:text-lg font-bold font-heading tracking-wide transition-all duration-200 hover:scale-105 whitespace-nowrap min-w-max shrink-0"
                 aria-label="Contact Khammam Ambulance Services on WhatsApp"
               >
-                <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-400 flex-shrink-0" aria-hidden="true" />
-                <span className="whitespace-nowrap">WhatsApp Now</span>
+                <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-400 shrink-0" aria-hidden="true" />
+                <span className="whitespace-nowrap inline-block">WhatsApp Now</span>
               </a>
             </motion.div>
 
