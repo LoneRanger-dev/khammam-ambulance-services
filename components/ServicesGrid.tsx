@@ -114,7 +114,7 @@ export default function ServicesGrid() {
                     </div>
 
                     <div className="absolute bottom-3 left-4 right-4 flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-emergency-500/20 border border-emergency-500/40 flex items-center justify-center text-emergency-400 backdrop-blur-md">
+                      <div className="w-10 h-10 rounded-xl bg-emergency-500/20 border border-emergency-500/40 flex items-center justify-center text-emergency-400 backdrop-blur-md flex-shrink-0">
                         <Icon className="w-5 h-5" />
                       </div>
                       <h3 className="font-display text-2xl text-white group-hover:text-emergency-300 transition-colors leading-tight">
@@ -133,7 +133,7 @@ export default function ServicesGrid() {
                     <ul className="space-y-2 pt-2 border-t border-white/10">
                       {service.features.map((feat) => (
                         <li key={feat} className="flex items-center gap-2 text-xs text-white/85">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emergency-400" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-emergency-400 flex-shrink-0" />
                           <span>{feat}</span>
                         </li>
                       ))}
@@ -146,10 +146,10 @@ export default function ServicesGrid() {
                   <a
                     href={CALL_LINK}
                     onClick={() => trackCall(`service_${service.id}`)}
-                    className="w-full flex items-center justify-center gap-2 bg-emergency-500/90 hover:bg-emergency-600 text-white font-bold font-heading py-3 px-4 rounded-xl text-sm transition-all hover:shadow-lg hover:shadow-emergency-500/30"
+                    className="w-full flex items-center justify-center gap-2 bg-emergency-500/90 hover:bg-emergency-600 text-white font-bold font-heading py-3 px-4 rounded-xl text-sm transition-all hover:shadow-lg hover:shadow-emergency-500/30 whitespace-nowrap"
                   >
-                    <Phone className="w-4 h-4" />
-                    <span>BOOK NOW · {PHONE_DISPLAY}</span>
+                    <Phone className="w-4 h-4 flex-shrink-0" />
+                    <span className="whitespace-nowrap">BOOK NOW · {PHONE_DISPLAY}</span>
                   </a>
                 </div>
               </div>
